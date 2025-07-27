@@ -1,7 +1,6 @@
 package cmd
 
 var port int
-var host string
 var addr string
 
 type ProtocolType int

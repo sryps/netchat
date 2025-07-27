@@ -22,7 +22,6 @@ func init() {
 
 func Server() {
 	log.Printf("Server is running on port %d\n", port)
-	// Here you would typically start your server logic
 
 	connection, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {

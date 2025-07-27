@@ -21,14 +21,16 @@ var clientCmd = &cobra.Command{
 }
 
 func init() {
-	clientCmd.Flags().IntVarP(&port, "port", "p", 1234, "clientPort to connect to")
+	clientCmd.Flags().IntVarP(&port, "port", "p", 1234, "port to connect to")
+	clientCmd.Flags().StringVarP(&addr, "addr", "a", "localhost", "address to connect to")
 	rootCmd.AddCommand(clientCmd)
 }
 
 func Client(message string) {
-	log.Printf("Connecting to server on port %d\n", port)
+	hostStr := fmt.Sprintf("%s:%d", addr, port)
+	log.Printf("Connecting to server: %s\n", hostStr)
 
-	conn, err := net.Dial("tcp", fmt.Sprintf("localhost:%d", port))
+	conn, err := net.Dial("tcp", hostStr)
 	if err != nil {
 		log.Fatalf("Failed to connect to server: %v", err)
 	}
