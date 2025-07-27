@@ -11,7 +11,7 @@ go build -o netchat
 Install the binary globally:
 
 ```bash
-go install github.com/yourusername/netchat@latest
+go install
 ```
 
 ## Usage
